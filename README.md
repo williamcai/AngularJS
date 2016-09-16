@@ -1,2 +1,0 @@
-# AngularJS
-AngularJS course assignment
