@@ -9,8 +9,9 @@ function DIController($scope) {
   // Check lunch items
   $scope.lunchCheck = function () {
     // Initialize message string
-    var messageString = "";
-    messageString = "Please enter data first!";
+    var messageString = "Please enter data first!";
+    // Initialize message color and border color;
+    var msgColor = "red";
 
     //
     if ($scope.lunch != null) {
@@ -25,14 +26,20 @@ function DIController($scope) {
       if(itemCount == 0) {
         messageString = "Please enter data first!";
       } else {
-          if(itemCount > 3) {
+        if(itemCount > 3) {
           messageString = "Too much!";
         } else {
           messageString = "Enjoy!";
         }
+        msgColor = "green";
       }
     }
+    // bonus version: message color & border color
     $scope.msg = messageString;
+    $scope.msgstyle = {
+      "color" : msgColor,
+      "border" : "1px solid " + msgColor
+    } ;
   };
 }
 
