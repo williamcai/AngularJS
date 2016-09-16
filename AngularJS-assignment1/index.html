@@ -19,6 +19,9 @@
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
              class="form-control" ng-model="lunch">
+             <div style="color:gray">
+               empty entries like ' ', '' will not count as valid entries.
+             </div>
          </div>
          <div class="form-group">
              <button class="btn btn-default"  ng-click="lunchCheck();">Check If Too Much</button>
