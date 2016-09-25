@@ -1,8 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="ShoppingListCheckOff">
   <head>
-    <title>Shopping List Check Off</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .emptyMessage {
@@ -21,6 +23,7 @@
         color: green;
       }
     </style>
+    <title>Shopping List Check Off</title>
   </head>
 <body>
   <div class="container">
@@ -29,22 +32,26 @@
   <div class="row">
 
     <!-- To Buy List -->
-    <div class="col-md-6">
+    <div class="col-md-6" ng-controller='ToBuyShoppingController as showList'>
      <h2>To Buy:</h2>
      <ul>
-       <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
-       <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+       <li ng-repeat="item in showList.items">
+         Buy {{ item.quantity }} &nbsp; {{ item.name }}
+         <button class="btn btn-default" ng-click="showList.removeItem($index);"><span class="glyphicon glyphicon-ok"></span> Bought</button>
+       </li>
      </ul>
-     <div class="emptyMessage">Everything is bought!</div>
+     <div class="emptyMessage" ng-if="showList.items.length == 0">Everything is bought!</div>
     </div>
 
     <!-- Already Bought List -->
-    <div class="col-md-6">
-     <h2>Already Bought:</h2>
-     <ul>
-       <li>Bought 10 cookies</li>
-     </ul>
-     <div class="emptyMessage">Nothing bought yet.</div>
+    <div class="col-md-6" ng-controller='AlreadyBoughtShoppingController as boughtList'>
+      <h2>Already Bought:</h2>
+      <ul>
+        <li ng-repeat="item in boughtList.boughtItems">
+          Bought {{ item.quantity }} &nbsp; {{ item.name }}
+        </li>
+      </ul>
+      <div class="emptyMessage" ng-if="boughtList.boughtItems.length == 0">Nothing bought yet.</div>
     </div>
   </div>
 </div>
