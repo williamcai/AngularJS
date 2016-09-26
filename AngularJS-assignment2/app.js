@@ -29,14 +29,17 @@ function AlreadyBoughtShoppingController(ListService) {
 function ListService() {
   var service = this;
 
-  // List of shopping items
+  // List of shopping items : at least 5 items
   var items = [
     // Initialize
-  	{name : 'cookies', quantity: 10},
-  	{name : 'cookies', quantity: 11},
-  	{name : 'candies', quantity: 12},
-  	{name : 'cookies', quantity: 10},
-  	{name : 'cookies', quantity: 30}
+  	{name : 'Milk',          quantity: 10},
+  	{name : 'Donuts',        quantity: 50},
+  	{name : 'Cookies',       quantity: 100},
+  	{name : 'Chocolate',     quantity: 80},
+    {name : 'Cookies',       quantity: 100},
+    {name : 'Cookies',       quantity: 30},
+  	{name : 'Peanut Butter', quantity: 30},
+    {name : 'Pepto Bismol',  quantity: 30}
 	];
   // List of bought items
   var boughtItems = [];
