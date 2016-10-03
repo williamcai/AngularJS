@@ -18,21 +18,9 @@
     <div>
       <button class="btn btn-primary" ng-click="menu.getMatchedMenuItems(menu.searchTerm);">Narrow It Down For Me!</button>
     </div>
-    <!-- Bonus loader (see Bonus section of the assignment) -->
-    <items-loader-indicator></items-loader-indicator>
-
+    <div class="emptyMessage" ng-if="menu.message != null">{{menu.message}}</div>
     <!-- found-items should be implemented as a component -->
-     <div class="emptyMessage" ng-if="menu.message != null">{{menu.message}}</div>
-     <div>
-      <ul>
-        <li ng-repeat="item in menu.found" >
-          name        : {{item.name}} <br>
-          short name  : {{item.short_name}}<br>
-          description : {{item.description}}<br>
-          <button class="btn btn-warning" ng-click="menu.removeItem($index);">Don't want this one!</button><br>
-        </li>
-      </ul>
-    </div>
+    <found-items found-items="menu.found" on-remove="menu.removeMenu(index);"></found-items>
   </div>
 </body>
 </html>
