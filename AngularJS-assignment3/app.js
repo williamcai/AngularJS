@@ -28,6 +28,7 @@ function NarrowItDownController(MenuSearchService) {
     console.log("searchTerm:",searchTerm);
     if(searchTerm == null || searchTerm == '') {
       menu.message = "Nothing found";
+      console.log(menu.message);
       return ;
     }
     var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
@@ -44,6 +45,9 @@ function NarrowItDownController(MenuSearchService) {
       }
       if ( menu.found.length == 0 ) {
         menu.message = "Nothing found";
+        console.log(menu.message);
+      } else {
+        console.log("Service Finished!");
       }
     })
     .catch(function (error) {
