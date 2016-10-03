@@ -15,15 +15,11 @@ function FoundItemsDirective() {
       foundItems: '<',
       onRemove: '&',
     },
-    controller: FoundItemsDirectiveController,
+    controller: NarrowItDownController,
     controllerAs: 'menu',
     bindToController: true
   };
   return ddo;
-}
-
-function FoundItemsDirectiveController()  {
-  var menu = this ;
 }
 
 NarrowItDownController.$inject = ['MenuSearchService'];
